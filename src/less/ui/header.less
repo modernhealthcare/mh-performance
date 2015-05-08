@@ -1,0 +1,90 @@
+//------------------------------------//
+//  @HEADER
+//------------------------------------//
+
+.masthead {
+  height: 74px;
+  background-color: @cool-grey;
+  .rem(padding, 16);
+}
+
+.header {
+  position: relative;
+  width:  100%;
+  height: auto;
+  background-color: lighten(@cool-grey, 65%);
+  overflow: auto;
+  box-shadow: inset 0 2px 3px @shadow;
+}
+
+.header-logo {
+  display: inline-block;
+  @media @lg {
+    .rem(padding-right, 16);
+  }
+}
+
+.logo {
+  margin: 0 auto;
+  .rem(padding, 4);
+  @media @md { padding: 0; }
+  a {
+    display: block;
+    img {
+      .rem(max-width, 96);
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.nav-toggle {
+  position: absolute;
+  top: 50%;
+  .rem(right, 16);
+  display: block;
+  cursor: pointer;
+  padding: 10px 35px 16px 0;
+  transform: translateY(-50%);
+  z-index: 9999;
+  @media @md {
+    display: none;
+  }
+  span,
+  span:before,
+  span:after {
+    content: "";
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: white;
+    position: absolute;
+    display: block;
+    .transition(0.35s; all; ease-in-out);
+  }
+  span:before {
+    top: -10px;
+  }
+  span:after {
+    bottom: -10px;
+  }
+}
+
+.nav-toggle.active {
+  span {
+    background-color: transparent;
+  }
+  span:before,
+  span:after {
+    top: 0;
+  }
+  span:before {
+    background-color: black;
+    transform: rotate(45deg);
+  }
+  span:after {
+    background-color: black;
+    transform: rotate(-45deg);
+  }
+}

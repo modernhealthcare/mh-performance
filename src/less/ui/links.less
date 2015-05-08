@@ -1,0 +1,15 @@
+//------------------------------------//
+//  @LINKS
+//------------------------------------//
+
+a {
+  color: @crimson;
+  text-decoration: none;
+  .transition(0.2s; color; ease-in-out);
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken(@crimson, 10%);
+    outline: none;
+  }
+}
