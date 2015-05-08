@@ -1876,7 +1876,7 @@ a:active {
 @media screen and ( min-width: 48em ) {
   .nav-sidebar {
     top: 74px;
-    display: block;
+    display: block !important;
     max-width: 20%;
     height: auto;
   }

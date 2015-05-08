@@ -24,12 +24,13 @@ $(document).ready(function () {
         $nav.fadeOut(350);
       }
     });
-  });
 
-  $(function() {
-    var $main = $('[data-js="main"]');
-
-
+    $(window).resize(function() {
+      if ($(window).width() >= 768) {
+        $toggle.removeClass('active');
+        $nav.css('display', 'none');
+      }
+    });
   });
 
   $(function() {
