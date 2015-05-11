@@ -2,15 +2,6 @@ $(document).ready(function () {
 
   var $doc = $('html, body');
 
-  $('h1,h2,h3,h4,h5,h6').each(function() {
-    var $this = $(this);
-    var link = '<span class="icon-link"></span>';
-
-    if ($this.attr('id')) {
-      $this.prepend(link);
-    }
-  });
-
   $(function() {
     var $toggle = $('[data-js="nav-toggle"]');
     var $nav = $('[data-js="nav-sidebar"]');
@@ -41,21 +32,6 @@ $(document).ready(function () {
     var $toggle = $('[data-js="nav-toggle"]');
     var $nav = $('[data-js="nav-sidebar"]');
     var $navLink = $('[data-js="sub-nav"] a');
-    var $toTop = $('[data-js="to-top"]');
-
-    $toTop.click(function(e) {
-      $doc.animate({
-        scrollTop: 0
-      }, 400);
-
-      if ($doc.hasClass('menu-active')) {
-        $doc.removeClass('menu-active');
-        $toggle.removeClass('active');
-        $nav.fadeOut(350);
-      }
-
-      e.preventDefault();
-    });
 
     $('a[href*="#"]:not([href="#"])').click(function(e) {
       var target = $(this.hash);
