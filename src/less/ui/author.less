@@ -1,0 +1,36 @@
+//------------------------------------//
+//  @AUTHOR
+//------------------------------------//
+
+.author {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid darken(@white, 5%);
+  padding: 79px 0;
+}
+
+.author-img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  max-width: 96px;
+  transform: translateY(-50%);
+  @media @sm {
+    max-width: 120px;
+  }
+  > img {
+    border-radius: 50%;
+  }
+}
+
+.author-bio {
+  position: absolute;
+  top: 50%;
+  left: 112px;
+  transform: translateY(-50%);
+  @media @sm {
+    padding-left: 136px;
+  }
+}

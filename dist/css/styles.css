@@ -3070,6 +3070,45 @@ table.responsive {
     display: none;
   }
 }
+.author {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 79px 0;
+}
+.author-img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  max-width: 96px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media screen and ( min-width: 35.5em ) {
+  .author-img {
+    max-width: 120px;
+  }
+}
+.author-img > img {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.author-bio {
+  position: absolute;
+  top: 50%;
+  left: 112px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media screen and ( min-width: 35.5em ) {
+  .author-bio {
+    padding-left: 136px;
+  }
+}
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
