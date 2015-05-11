@@ -2,13 +2,73 @@
 //  @NAV
 //------------------------------------//
 
+.main-nav {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  > li {
+    float: left;
+    display: none;
+    line-height: 74px;
+    padding: 0;
+    margin: 0;
+    > a {
+      display: block;
+      height: inherit;
+      color: lighten(@cool-grey, 25%);
+      font-weight: bold;
+      line-height: inherit;
+      text-align: center;
+      padding: 0 24px;
+      .transition( 0.2s; all; ease-in-out );
+      &:focus,
+      &:hover {
+        color: @white;
+        background-color: lighten(@cool-grey, 45%);
+      }
+    }
+    &.logo {
+      display: block;
+      max-width: 112px;
+      > a {
+        padding: 16px 0;
+        background-color: transparent !important;
+      }
+    }
+    &.current {
+      > a {
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 6px;
+          background-color: @cool-grey;
+        }
+      }
+    }
+    @media @md {
+      display: block;
+      &.logo {
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
 .to-top {
   display: block;
   width: 100%;
   color: lighten(@cool-grey, 25%);
   font-weight: bold;
-  margin-top: 1em;
+  margin-top: 3em;
   margin-bottom: .25em;
+  @media @md {
+    margin-top: 1em;
+  }
   > span {
     display: inline-block;
     width: 100%;
@@ -19,8 +79,12 @@
   &:focus,
   &:hover {
     > span {
-      color: lighten(@cool-grey, 25%);
-      background-color: lighten(@cool-grey, 65%);
+      color: @white;
+      background-color: darken(@cool-grey, 10%);
+      @media @md {
+        color: lighten(@cool-grey, 25%);
+        background-color: lighten(@cool-grey, 65%);
+      }
     }
   }
 }
@@ -32,17 +96,18 @@
   display: none;
   width: 100%;
   height: 100%;
-  background-color: @white;
+  background-color: @cool-grey;
   z-index: 999;
   @media @md {
     top: 74px;
     display: block !important;
-    max-width: 20%;
+    max-width: 25%;
     height: auto;
+    background-color: @white;
   }
 }
 
-.nav-list {
+.sub-nav {
   padding: 0;
   margin: 0;
   > li {
@@ -57,20 +122,26 @@
         display: inline-block;
         width: 100%;
         border-radius: 4px;
-        padding: 1em;
+        padding: .75em;
         .transition( 0.2s; all; ease-in-out );
       }
       &:focus,
       &:hover {
         > span {
-          color: lighten(@cool-grey, 25%);
-          background-color: lighten(@cool-grey, 65%);
+          color: @white;
+          background-color: darken(@cool-grey, 10%);
+          @media @md {
+            color: lighten(@cool-grey, 25%);
+            background-color: lighten(@cool-grey, 65%);
+          }
         }
       }
       &.nav-active {
         > span {
-          color: @white;
-          background-color: @cool-grey;
+          @media @md {
+            color: @white;
+            background-color: @cool-grey;
+          }
         }
       }
     }

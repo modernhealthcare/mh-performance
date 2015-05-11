@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  var $doc = $('html, body');
+
   $('h1,h2,h3,h4,h5,h6').each(function() {
     var $this = $(this);
     var link = '<span class="icon-link"></span>';
@@ -17,9 +19,11 @@ $(document).ready(function () {
       var $this = $(this);
 
       if (!$this.hasClass('active')) {
+        $doc.addClass('menu-active');
         $this.addClass('active');
         $nav.fadeIn(350);
       } else {
+        $doc.removeClass('menu-active');
         $this.removeClass('active');
         $nav.fadeOut(350);
       }
@@ -34,26 +38,41 @@ $(document).ready(function () {
   });
 
   $(function() {
-    $('a[href="#"]').click(function(e) {
-      $('html,body').animate({
+    var $toggle = $('[data-js="nav-toggle"]');
+    var $nav = $('[data-js="nav-sidebar"]');
+    var $navLink = $('[data-js="sub-nav"] a');
+    var $toTop = $('[data-js="to-top"]');
+
+    $toTop.click(function(e) {
+      $doc.animate({
         scrollTop: 0
       }, 400);
 
+      if ($doc.hasClass('menu-active')) {
+        $doc.removeClass('menu-active');
+        $toggle.removeClass('active');
+        $nav.fadeOut(350);
+      }
+
       e.preventDefault();
     });
-  });
 
-  $(function() {
     $('a[href*="#"]:not([href="#"])').click(function(e) {
+      var target = $(this.hash);
+
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-        var target = $(this.hash);
 
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
         if (target.length) {
-          $('html,body').animate({
+          $doc.animate({
             scrollTop: target.offset().top
           }, 400);
+        }
+        if ($doc.hasClass('menu-active')) {
+          $doc.removeClass('menu-active');
+          $toggle.removeClass('active');
+          $nav.fadeOut(350);
         }
       }
 
@@ -61,9 +80,9 @@ $(document).ready(function () {
     });
   });
 
-  var $nav = $('[data-js="nav-list"]');
-  var $navItem = $('[data-js="nav-list"] li');
-  var $navLink = $('[data-js="nav-list"] a');
+  var $nav = $('[data-js="sub-nav"]');
+  var $navItem = $('[data-js="sub-nav"] li');
+  var $navLink = $('[data-js="sub-nav"] a');
   var $section = $('section');
   var navChildren = $navItem.children();
   var navArray = [];
@@ -94,7 +113,7 @@ $(document).ready(function () {
     }
 
     if (winPos + winH == docH) {
-      var $navItemLast = $('[data-js="nav-list"] li:last-child a');
+      var $navItemLast = $('[data-js="sub-nav"] li:last-child a');
 
       if (!$navItemLast.hasClass('nav-active')) {
         var navCurr = $('.nav-active').attr('href');
