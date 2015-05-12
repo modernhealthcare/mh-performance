@@ -61,20 +61,24 @@
 .nav-sidebar {
   position: fixed;
   top: 0;
-  left: 0;
-  display: none;
   width: 100%;
   height: 100%;
   text-align: center;
   background-color: @cool-grey;
+  opacity: 0;
   z-index: 999;
+  .transition( 0.35s; opacity; ease-in-out );
+  &.menu-active {
+    opacity: 1;
+  }
   @media @md {
     top: 74px;
-    display: block !important;
     max-width: 25%;
     height: auto;
     text-align: right;
     background-color: @white;
+    opacity: 1;
+    transition: none;
   }
 }
 
