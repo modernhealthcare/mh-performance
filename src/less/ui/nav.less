@@ -66,10 +66,12 @@
   text-align: center;
   background-color: @cool-grey;
   opacity: 0;
-  z-index: 999;
+  visibility: hidden;
   .transition( 0.35s; opacity; ease-in-out );
   &.menu-active {
     opacity: 1;
+    visibility: visible;
+    z-index: 999;
   }
   @media @md {
     top: 74px;
