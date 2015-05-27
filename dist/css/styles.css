@@ -1921,12 +1921,14 @@ a:active {
   text-align: center;
   background-color: #424b55;
   opacity: 0;
-  z-index: 999;
+  visibility: hidden;
   -webkit-transition: 0.35s opacity ease-in-out;
   transition: 0.35s opacity ease-in-out;
 }
 .nav-sidebar.menu-active {
   opacity: 1;
+  visibility: visible;
+  z-index: 999;
 }
 @media screen and ( min-width: 48em ) {
   .nav-sidebar {
