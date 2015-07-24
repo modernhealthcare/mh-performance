@@ -19,7 +19,7 @@
   &lt;/noscript>
 &lt;/head>
 </code>
-</pre><p>Google provides an <a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery#example" target="_blank">alternate example</a> of loading CSS in an asynchronous, non-render blocking way. You can also find the above-the-fold, ciritcal CSS with this <a href="https://www.npmjs.com/package/critical">Gulp plugin</a>.</p></section><section data-js="#js"><h2 id="js">JS</h2><p>Javascript can also be render blocking and should also be optimized in a similar fashion. There are a handful of ways to acheive this:</p><ol><li>Inlining small scripts</li><li>Loading external scripts at the bottom of the document</li><li>Using <code class="language-markup">defer</code> and <code class="language-markup">ayncc</code> to manage the execution of scripts</li></ol><pre class="language-markup">
+</pre><p>Google provides an <a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery#example" target="_blank">alternate example</a> of loading CSS in an asynchronous, non-render blocking way. You can also find the above-the-fold, ciritcal CSS with this <a href="https://www.npmjs.com/package/critical">Gulp plugin</a>.</p></section><section data-js="#js"><h2 id="js">JS</h2><p>Javascript can also be render blocking and should also be optimized in a similar fashion. There are a handful of ways to acheive this:</p><ol><li>Inlining small scripts</li><li>Loading external scripts at the bottom of the document</li><li>Using <code class="language-markup">defer</code> and <code class="language-markup">async</code> to manage the execution of scripts</li></ol><pre class="language-markup">
 <code class="language-markup">
 &lt;head>
   &lt;script>
